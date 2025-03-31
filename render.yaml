@@ -5,6 +5,7 @@ services:
     buildCommand: "./mvnw clean install"
     startCommand: "./mvnw spring-boot:run"
     plan: free
+    rootDir: backend
     envVars:
       - key: PORT
         value: 10000  # Render dynamically assigns a port — see note below
