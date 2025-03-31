@@ -3,6 +3,8 @@ package com.lotreetea.backend.service;
 import com.lotreetea.backend.model.InventoryItem;
 import com.lotreetea.backend.repo.InventoryItemRepo;
 
+import java.util.List;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
@@ -20,8 +22,8 @@ import lombok.extern.slf4j.Slf4j;
 public class InventoryService {
     private final InventoryItemRepo inventoryRepo;
 
-    public Page<InventoryItem>getAllInventoryItems(int page, int size){
-        return inventoryRepo.findAll(PageRequest.of(page, size, Sort.by("itemName")));
+    public List<InventoryItem> getAllInventoryItems() {
+        return inventoryRepo.findAll(Sort.by("itemName"));
     }
 
     public InventoryItem getInventoryItem(Integer id){
